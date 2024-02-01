@@ -2,20 +2,21 @@
 <html>
 
 <head>
-  <title><%= title %></title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <title><%= app %> - <%= title %></title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
 <body>
-  <h1><%= title %></h1>
+  <h1><%= app %></h1>
+  <p><a href="../"><span class="material-symbols-outlined">arrow_back</span></a></p>
   <form method="POST" action="/new">
     <label for="author">Your name</label>
-    <input name="author" id="author" maxlength="10" placeholder="Monica">
+    <input name="author" id="author" maxlength="10" placeholder="Monica" required>
     <label for="message">Your message</label>
-    <textarea name="message" id="message" maxlength="200" placeholder="Hello..."></textarea>
-    <button type="submit">Send!</button>
+    <textarea name="message" id="message" maxlength="140" placeholder="Hello..." required></textarea>
+    <button class="material-symbols-outlined" type="submit"> send</button>
   </form>
-  <p><a href="../">Go back</a></p>
 </body>
 
 </html>
