@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+  <h1><%= title %></h1>
+  <form method="POST" action="/new">
+    <label for="author">Your name</label>
+    <input name="author" id="author" maxlength="10" placeholder="Monica">
+    <label for="message">Your message</label>
+    <textarea name="message" id="message" maxlength="200" placeholder="Hello..."></textarea>
+    <button type="submit">Send!</button>
+  </form>
+  <p><a href="../">Go back</a></p>
+</body>
+
+</html>
