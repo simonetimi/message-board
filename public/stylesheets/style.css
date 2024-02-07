@@ -22,12 +22,14 @@ h1 {
   margin-bottom: -0.4rem;
 }
 
-body>p {
+body>p,
+body>div>p {
   font-size: 0.9rem;
   transition: transform 0.5s ease-out;
 }
 
-body>p:hover {
+body>p:hover,
+body>div>p:hover {
   transform: scale(1.3);
 }
 
@@ -94,4 +96,10 @@ form>button:hover {
 
 a {
   color: #000;
+}
+
+div.flex {
+  display: flex;
+  justify-content: center;
+  gap: 1rem
 }

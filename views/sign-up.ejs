@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <title><%= app %> - <%= title %></title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+  <h1>Sign-up</h1>
+  <p><a href="../"><span class="material-symbols-outlined">arrow_back</span></a></p>
+  <form method="POST" action="">
+    <label for="first_name">First name</label>
+    <input name="first_name" id="first_name" minlength="2" maxlength="25" type="text" placeholder="Ed" required>
+    <label for="last_name">Last name</label>
+    <input name="last_name" id="last_name" minlength="2" maxlength="25" type="text" placeholder="Boldwin" required>
+    <label for="email">Email</label>
+    <input name="email" id="email" minlength="5" maxlength="25" type="email" placeholder="yourname@example.com" required>
+    <label for="password">Password</label>
+    <input name="password" id="password" minlength="3" maxlength="25" type="password" required>
+    <button class="material-symbols-outlined" type="submit">person_add</button>
+  </form>
+</body>
+
+</html>

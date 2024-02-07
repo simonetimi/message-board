@@ -1,5 +1,7 @@
 import express from 'express';
 import { format } from 'date-fns';
+import Message from '../models/message.js';
+import asyncHandler from 'express-async-handler';
 
 const router = express.Router();
 
@@ -12,26 +14,29 @@ const colors = [
   '#8c311f',
 ];
 
-export const messages = [
-  {
-    text: 'Hi Bob!',
-    author: 'Danielle Poole',
-    added: format('1992-07-03T18:19:27.052Z', 'dd MMMM yyyy, HH:mm'),
-  },
-  {
-    text: 'Well, sir, I don’t wear pants.',
-    author: 'Margo Madison',
-    added: format('1973-12-31T22:19:27.052Z', 'dd MMMM yyyy, HH:mm'),
-  },
-];
-
 /* GET home page. */
-router.get('/', function (req, res) {
-  res.render('index', {
-    title: 'Mini Message Board',
-    messages: messages,
-    colors: colors,
-  });
-});
+router.get(
+  '/',
+  asyncHandler(async (req, res, next) => {
+    let allMessages = await Message.find()
+      .sort({ added: 1 })
+      .populate('user')
+      .exec();
+    // format dates
+    allMessages = allMessages.map((message) => {
+      const formattedDate = format(
+        new Date(message.added),
+        'dd MMMM yyyy, HH:mm'
+      );
+      return { ...message.toObject(), added: formattedDate };
+    });
+
+    res.render('index', {
+      title: 'Mini Message Board',
+      messages: allMessages,
+      colors: colors,
+    });
+  })
+);
 
 export default router;

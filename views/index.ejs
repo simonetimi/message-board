@@ -9,11 +9,15 @@
 
 <body>
   <h1><%= title %></h1>
-  <p><a href=" /new"><span class="material-symbols-outlined">add_comment</span></a></p>
+  <div class="flex">
+    <p><a href=" /new"><span class="material-symbols-outlined">add_comment</span></a></p>
+    <!-- This should be conditional to the session -->
+    <p><a href=" /sign-up"><span class="material-symbols-outlined">person_add</span></a></p>
+  </div>
   <% messages.forEach(element => { %>
   <article>
     <div>
-      <p style="color:<%= colors[Math.floor(Math.random() * 5)] %>;"><%= element.author %></p>
+      <p style="color:<%= colors[Math.floor(Math.random() * 5)] %>;"><%= element.user %></p>
       <p><%= element.added %></p>
     </div>
     <p><%= element.text %></p>
