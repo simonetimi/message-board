@@ -10,14 +10,20 @@
 <body>
   <h1><%= title %></h1>
   <div class="flex">
-    <p><a href=" /new"><span class="material-symbols-outlined">add_comment</span></a></p>
-    <!-- This should be conditional to the session -->
+    <% if (!user) { %>
     <p><a href=" /sign-up"><span class="material-symbols-outlined">person_add</span></a></p>
+    <p><a href=" /login"><span class="material-symbols-outlined">login</span></a></p>
+    <% } %>
+    <!-- This should be conditional to the session -->
+    <% if (user) { %>
+    <p><a href=" /new"><span class="material-symbols-outlined">add_comment</span></a></p>
+    <p><a href=" /logout"><span class="material-symbols-outlined">logout</span></a></p>
+    <% } %>
   </div>
   <% messages.forEach(element => { %>
   <article>
     <div>
-      <p style="color:<%= colors[Math.floor(Math.random() * 5)] %>;"><%= element.user %></p>
+      <p style="color:<%= colors[Math.floor(Math.random() * 5)] %>;"><%= user ? element.user : 'Anonymous' %></p>
       <p><%= element.added %></p>
     </div>
     <p><%= element.text %></p>

@@ -32,7 +32,8 @@ router.get(
     });
 
     res.render('index', {
-      title: 'Mini Message Board',
+      user: req.user,
+      title: 'Message Board',
       messages: allMessages,
       colors: colors,
     });

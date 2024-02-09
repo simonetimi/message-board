@@ -13,7 +13,7 @@ const router = express.Router();
 
 /* GET users listing. */
 router.get('/', function (req, res) {
-  res.render('form', { title: 'Leave a message', app: 'Mini Message Board' });
+  res.render('form', { title: 'Leave a message', app: 'Message Board' });
 });
 
 router.post('/', function (req, res) {
