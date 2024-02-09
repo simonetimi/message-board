@@ -40,4 +40,19 @@ router.get(
   })
 );
 
+router.post('/delete-message', async (req, res) => {
+  const { id } = req.body;
+  if (req.body._method === 'DELETE') {
+    try {
+      const deletedMessage = await Message.findByIdAndDelete(id);
+      if (!deletedMessage) {
+        return res.status(404).send('Message not found');
+      }
+      res.redirect('/');
+    } catch (err) {
+      res.status(500).send(err.message);
+    }
+  }
+});
+
 export default router;

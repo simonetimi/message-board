@@ -11,14 +11,16 @@
   <h1>Sign-up</h1>
   <p><a href="../"><span class="material-symbols-outlined">arrow_back</span></a></p>
   <form method="POST" action="">
-    <label for="first_name">First name</label>
+    <label for="first_name">First name*</label>
     <input name="first_name" id="first_name" minlength="2" maxlength="25" type="text" placeholder="Ed" required>
-    <label for="last_name">Last name</label>
+    <label for="last_name">Last name*</label>
     <input name="last_name" id="last_name" minlength="2" maxlength="25" type="text" placeholder="Boldwin" required>
-    <label for="email">Email</label>
+    <label for="email">Email*</label>
     <input name="email" id="email" minlength="5" maxlength="25" type="email" placeholder="yourname@example.com" required>
-    <label for="password">Password</label>
+    <label for="password">Password*</label>
     <input name="password" id="password" minlength="3" maxlength="25" type="password" required>
+    <label for="admin_pass">Admin</label>
+    <input name="admin_pass" id="admin_pass" minlength="2" maxlength="25" type="text" placeholder="Ed" required>
     <button class="material-symbols-outlined" type="submit">person_add</button>
   </form>
 </body>

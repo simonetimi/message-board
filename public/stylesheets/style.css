@@ -103,3 +103,17 @@ div.flex {
   justify-content: center;
   gap: 1rem
 }
+
+form.none {
+  border: none;
+  box-shadow: none;
+  width: 50px;
+  padding: 5px;
+  margin-left: -12px;
+}
+
+button.material-symbols-outlined {
+  width: 10px;
+  border: none;
+  box-shadow: 0;
+}

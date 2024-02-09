@@ -27,6 +27,13 @@
       <p><%= element.added %></p>
     </div>
     <p><%= element.text %></p>
+    <% if (user && user.admin) { %>
+    <form class="none" method="POST" action="/delete-message">
+      <input type="hidden" name="_method" value="DELETE" />
+      <input type="hidden" name="id" value="<%= element._id %>" />
+      <button class="material-symbols-outlined" type="submit"><span>delete</span></button>
+    </form>
+    <% } %>
   </article>
   <% }); %>
 </body>
