@@ -9,25 +9,31 @@ import asyncHandler from 'express-async-handler';
 
 import Message from '../models/message.js';
 import User from '../models/user.js';
+
 const router = express.Router();
 
 /* GET users listing. */
 router.get('/', function (req, res) {
+  if (!req.user) {
+    return res.render('login', { title: 'Login', app: 'Message Board' });
+  }
   res.render('form', { title: 'Leave a message', app: 'Message Board' });
 });
 
-router.post('/', function (req, res) {
-  const author = req.body.author;
-  const message = req.body.message;
-  const date = format(new Date(), 'dd MMMM yyyy, HH:mm');
-  /* write database instead
-  messages.push({
-    text: message,
-    author: author,
-    added: date,
-  });
-  */
-  res.redirect('/');
-});
+router.post(
+  '/',
+  asyncHandler(async (req, res) => {
+    const text = req.body.text;
+    const userId = req.user._id;
+    const date = format(new Date(), 'dd MMMM yyyy, HH:mm');
+    const message = new Message({
+      text: text,
+      user: userId,
+      added: date,
+    });
+    const result = await message.save();
+    res.redirect('/');
+  })
+);
 
 export default router;

@@ -23,7 +23,7 @@
   <% messages.forEach(element => { %>
   <article>
     <div>
-      <p style="color:<%= colors[Math.floor(Math.random() * 5)] %>;"><%= user ? element.user : 'Anonymous' %></p>
+      <p style="color:<%= colors[Math.floor(Math.random() * 5)] %>;"><%= user ? `${element.user.first_name} ${element.user.last_name}` : 'Anonymous' %></p>
       <p><%= element.added %></p>
     </div>
     <p><%= element.text %></p>
