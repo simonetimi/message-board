@@ -26,7 +26,7 @@ router.post(
       user: userId,
       added: date,
     });
-    const result = await message.save();
+    await message.save();
     res.redirect('/');
   })
 );

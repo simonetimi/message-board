@@ -23,7 +23,7 @@ router.post('/', async (req, res, next) => {
       password: hashedPassword,
       admin: checkedAdmin,
     });
-    const result = await user.save();
+    await user.save();
     res.redirect('/');
   } catch (err) {
     return next(err);

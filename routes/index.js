@@ -17,7 +17,7 @@ const colors = [
 /* GET home page. */
 router.get(
   '/',
-  asyncHandler(async (req, res, next) => {
+  asyncHandler(async (req, res) => {
     let allMessages = await Message.find()
       .sort({ added: 1 })
       .populate('user')
